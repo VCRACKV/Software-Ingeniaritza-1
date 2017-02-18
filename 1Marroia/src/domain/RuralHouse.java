@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class RuralHouse {
 
 private static int numberOfHouses=1;
+@Id
 private Integer houseNumber;
 private String city;
 private String address;
@@ -59,4 +63,5 @@ public Offer addOffer(Date date, int tripleNumber, int doubleNumber, int singleN
 	offers.add(o);
 	return o;
 }
+
 }

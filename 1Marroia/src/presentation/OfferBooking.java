@@ -269,7 +269,7 @@ public class OfferBooking extends JFrame {
 					bookOffer.setEnabled(true);
 					offerInfo.removeAllElements();
 					bookOffer.setText("");
-
+					try{
 					java.util.Date date =newDate(Integer.parseInt(year.getText()),month.getSelectedIndex(),Integer.parseInt(day.getText()));
 
 
@@ -278,7 +278,11 @@ public class OfferBooking extends JFrame {
 					for (Offer v : coleccion)  offerInfo.addElement(v); 
 					if (coleccion.isEmpty()) searchResult.setText("No offers in that city in that date");
 					else searchResult.setText("Choose an available offer in this list:");
-
+					}catch(NumberFormatException ex){
+						
+					}
+					
+					
 
 				}
 			});
@@ -324,6 +328,7 @@ public class OfferBooking extends JFrame {
 					else bookOffer.setText("Booked. #rooms left: "+(num-1));
 					bookOffer.setEnabled(false);
 				}
+				
 			});
 		}
 		return bookOffer;
@@ -341,7 +346,6 @@ public class OfferBooking extends JFrame {
 		OfferBooking p = new OfferBooking();
 		p.setBusinessLogic(new MyOfferManager());
 		p.setVisible(true);
-
 	}
 	private Date newDate(int year,int month,int day) {
 
@@ -392,6 +396,6 @@ public class OfferBooking extends JFrame {
 	}
 
 
-
+//Ander Lopez
 }  //  @jve:decl-index=0:visual-constraint="18,9"
 

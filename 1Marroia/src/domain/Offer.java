@@ -3,9 +3,15 @@ package domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Offer {
 
 private Date date;
+@Id
+private static int numOffer=1;
+private int offerNum;
 
 private int tripleNumber;
 private int doubleNumber;
@@ -19,6 +25,7 @@ public Offer(Date date, int tripleNumber, int doubleNumber, int singleNumber, Ru
 	this.doubleNumber = doubleNumber;
 	this.singleNumber = singleNumber;
 	this.rh = rh;
+	this.offerNum = Offer.numOffer++;
 }
 
 public Date getDate() {
@@ -27,6 +34,11 @@ public Date getDate() {
 public void setDate(Date date) {
 	this.date = date;
 }
+
+public int getOfferNumber(){
+	return offerNum;
+}
+
 public int getTripleNumber() {
 	return tripleNumber;
 }
